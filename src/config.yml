@@ -1,0 +1,65 @@
+Command:
+  Main: "tsglock"
+  Aliases:
+   - "lock"
+  AddCommandOnlyConsole: true #Block /tsglock add <player> from game
+Check: #This function require LuckPerms plugin!
+   Enabled: true
+   Permissions: 
+     - "group.Owner"
+     - "group.Admin"
+     - "group.Mod"
+     - "group.Developer"
+     - "group.Dev"
+     - "Luckperms.*"
+     - "*"
+   Commands:
+     - "ban %player% &cYou are not allowed to have permission %permission%!"  
+   Alert: true #Send or not Messages.Check.alert
+   Alert-permission: "tsglock.alert" #Permission to receive message, if alert is active
+Lock: #This function require ProtocolLib plugin!
+   Enabled: true    
+   Permissions: #If player have one of this permission he will be locked
+     - "tsglock.lock"
+     - "*"
+     - "group.Owner"
+   Password: "ChangeThisWithStrongPassword123" 
+   HidePassword: true
+   Attempts: 3 #Number of attempts by the player to enter the password
+   Commands: #Command will execute after too many attempts
+     - "kick %player% Too many attempts!"  
+   Message-delay: 10 #Task delay in seconds (0 to disable)
+   Kick-task: 60 #Task delay in seconds (0 to disable)  
+Messages:
+  prefix: "&0[&cLPLock&0]"
+  help:
+    - "&cTSGLock commands:" 
+    - "&etsglock help"
+    - "&etsglock list"
+    - "&etsglock reload"
+    - "&etsglock enable"
+    - "&etsglock disable"
+    - "&etsglock add <player>"
+    - "&etsglock remove <player>"
+  incorrect-usage: "&cTry /tsglock help"
+  player-not-found: "&c%player% not found!"
+  no-permission: "&cYou haven't permission to do that!"
+  player-added: "%prefix%%player% added to allowed list!"
+  player-already-in-list: "%prefix%&c%player% was already in list!"
+  player-removed: "%prefix%%player% removed from allowed list!"
+  player-not-found-in-list: "%prefix%&c%player% not found in list!"
+  list: "%prefix% Allowed list:"
+  list-format: "&a- &f%player%"
+  on-reload: "&aPlugin reloaded!"
+  add-blocked-in-game: "%prefix%&cThis command is bloked from game!"
+  plugin-disabled: "%prefix%&aLock and check disabled" 
+  plugin-enabled: "%prefix%&aLock and check enabled!"
+  Check:
+     alert: "%prefix%&4%player% have %permission% and is not an allowed player!"
+     hook-disabled: "&cChek is disabled!"
+  Lock:    
+     hook-disabled: "&cLock is disabled!"
+     kick-message: "%prefix%&cTime exceeded to insert password"
+     task-message: "&cInsert password!"
+     wrong-password: "%prefix%&cWrong password! You have another %attempts% attempts"
+     login-successful: "%prefix%&aLogged in!" 

@@ -1,0 +1,31 @@
+name: LuckPermslock
+main: tsg.luckpermslock.main.LuckPermsLock
+version: 1.0
+author: TSGSamu18
+softdependence: [LuckPerms, ProtocolLib]
+commands:
+   help:
+     permission: tsglock.help
+     usage: /tsglock help
+   list:
+     permission: tsglock.list
+     usage: /tsglock list
+   reload:
+     permission: tsglock.reload
+     usage: /tsglock reload
+   add:
+     permission: tsglock.add
+     usage: /tsglock add <player> 
+   remove:
+     permission: tsglock.remove
+     usage: /tsglock remove <player> 
+   disable:
+     permission: tsglock.disable
+     usage: /tsglock disable 
+   enable:
+     permission: tsglock.enable
+     usage: /tsglock enable    
+   login:
+     permission: tsglock.login
+     usage: /tsglock login <player> 
+     
