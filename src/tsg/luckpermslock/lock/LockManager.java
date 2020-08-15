@@ -53,13 +53,13 @@ public class LockManager {
 									for (String c : commands) {
 										Bukkit.getScheduler().callSyncMethod(LuckPermsLock.instance,
 												() -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(),
-														c.replaceAll("%player%", name).replaceAll("&", "ง")));
+														c.replaceAll("%player%", name).replaceAll("&", "ยง")));
 									}
 									return;
 								}
 								blockedPlayer.put(id, blockedPlayer.get(id) + 1);
 								e.getPlayer().sendMessage(LuckPermsLock.instance.messages.WRONG_PASSWORD
-										.replaceAll("%attempts%", String.valueOf(attempts - blockedPlayer.get(id)) + 1));
+										.replaceAll("%attempts%", String.valueOf(attempts - blockedPlayer.get(id) + 1)));
 							} else {
 								blockedPlayer.remove(id);
 								e.getPlayer().sendMessage(LuckPermsLock.instance.messages.LOGIN_SUCCESSFUL);
